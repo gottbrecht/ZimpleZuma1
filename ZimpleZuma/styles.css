@@ -1,0 +1,31 @@
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+}
+
+#game-container {
+  width: 600px;
+  height: 400px;
+  background-color: #fff;
+  border: 2px solid #000;
+  position: relative;
+}
+
+.ball {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  position: absolute;
+  cursor: pointer;
+}
+
+.expand {
+  /* Add your expanding animation styles here */
+}
+
+/* Other styling rules as needed */
