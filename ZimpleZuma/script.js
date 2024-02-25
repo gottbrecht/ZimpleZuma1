@@ -1,6 +1,6 @@
 import LinkedList from './linked-list.js';
 
-
+"use strict"
 class ZumaModel {
   constructor() {
     this.linkedList = new LinkedList();
@@ -8,6 +8,7 @@ class ZumaModel {
 
   generateRandomBall() {
     const balltype = Math.ceil(Math.random() * 6);
+    console.log(`Generated random ball of type: ${balltype}`);
     return this.createBallElement(balltype);
   }
 
@@ -17,28 +18,31 @@ class ZumaModel {
     const img = document.createElement("img");
     img.src = `images/marble${balltype}.png`;
     img.dataset.balltype = balltype;
+    img.className = "ball-img";
     ball.dataset.balltype = balltype;
     ball.appendChild(img);
+    console.log(`Created ball element with type: ${balltype}`);
     return ball;
   }
 
-  // Other game logic functions
+  loadCannonWithBall(newCannonBall) {
+    const cannonContainer = document.querySelector("#cannon");
+    cannonContainer.innerHTML = '';
+    cannonContainer.appendChild(newCannonBall);
+    console.log("Loaded cannon with a new ball");
+  }
 }
 
 class ZumaView {
-  constructor() {
-    // Initialize DOM elements here
-  }
+  constructor() {}
 
   initializeView() {
-    // Set up the initial view
+    console.log("Initialized view");
   }
 
   updateView(modelData) {
-    // Update the view based on modelData
+    console.log("Updated view with model data", modelData);
   }
-
-  // Animation and DOM manipulation functions
 }
 
 class ZumaController {
@@ -51,27 +55,25 @@ class ZumaController {
   }
 
   initializeGame() {
+    console.log("Initializing the game");
     for (let i = 0; i < 6; i++) {
       const ball = this.model.generateRandomBall();
       this.model.linkedList.append(ball);
       this.view.updateView(this.model.linkedList);
     }
 
-    // Load the cannon with a random ball
     const cannonBall = this.model.generateRandomBall();
     this.model.loadCannonWithBall(cannonBall);
     this.view.updateView(this.model.linkedList);
   }
 
   handleBallClick(event) {
-    // Handle ball click logic
+    console.log("Handling ball click");
   }
-
-  // Other game control functions
 }
 
-// Start the game when the window is loaded
 window.addEventListener("load", () => {
+  console.log("Window loaded");
   const model = new ZumaModel();
   const view = new ZumaView();
   const controller = new ZumaController(model, view);

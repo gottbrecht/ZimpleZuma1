@@ -5,7 +5,7 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #f0f0f0;
+  background-color: #644646;
 }
 
 #game-container {
@@ -17,15 +17,18 @@ body {
 }
 
 .ball {
-  width: 50px;
-  height: 50px;
+  max-width: 50px;
+  max-height: 50px;
   border-radius: 50%;
   position: absolute;
   cursor: pointer;
 }
 
-.expand {
-  /* Add your expanding animation styles here */
+.ball-img {
+  max-width: 50px; 
+  max-height: 50px; 
 }
 
-/* Other styling rules as needed */
+
+
+  
